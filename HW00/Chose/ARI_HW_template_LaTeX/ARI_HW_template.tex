@@ -1,0 +1,653 @@
+%
+% Author:  Jan Zabojnik
+% E-mail:  jan.zabojnik@fel.cvut.cz
+% Date:    03.02.2014 14:57
+%
+\documentclass[twoside]{article}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% package pro psani matix (tedy zavorek [])
+\usepackage{amsmath}
+% unit step
+\usepackage{bbold}
+% figures reperacion
+\usepackage{float}
+
+% nastavení pisma a èeštiny
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage[czech]{babel}	
+
+% odkazy
+\usepackage{url}
+
+% vícesloupcové tabulky
+\usepackage{multirow}
+
+% vnoøené popisky obrázkù
+\usepackage{subcaption}
+
+% automatická konverze EPS 
+\usepackage{graphicx} 
+\usepackage{epstopdf}
+
+% odkazy a záložky
+\usepackage[unicode=true, bookmarks=true,bookmarksnumbered=true,
+bookmarksopen=false, breaklinks=false,pdfborder={0 0 0},
+pdfpagemode=UseNone,backref=false,colorlinks=true] {hyperref}
+
+% Poznámky pøi pøekladu
+\usepackage{xkeyval}	% Inline todonotes
+\usepackage[textsize = footnotesize]{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+% Zacni sekci slovem ukol
+\renewcommand{\thesection}{Úkol \arabic{section}}
+% enumerate zacina s pismenem
+\renewcommand{\theenumi}{\alph{enumi}}
+
+% smaz aktualni page layout
+\fancyhf{}
+% zahlavi
+\usepackage{titling}
+\fancyhf[HC]{\thetitle}
+\fancyhf[HLE,HRO]{\theauthor}
+\fancyhf[HRE,HLO]{\today}
+ %zapati
+\fancyhf[FLE,FRO]{\thepage}
+
+% údaje o autorovi
+\title{Domácí úkol ARI \\ Opakování pøedmìtu SAS}
+\author{Josef Èech}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% ---------------------------------
+% ---------------------------------
+% název sekce je generován automaticky jako: Úkol X
+\section{~}
+\label{sec:ukol1}
+\todo{doplnit èeho je to funkce tzn u x1 udìlat x1(t)}
+\todo{pøekontrolovat okdazy na rovnice (1), (2)}
+	Je dán systém
+	\begin{equation}
+		G(s) = \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)}
+	\end{equation}
+	Póly pøenosu jsou: $ -4, -2, -1 $. \\
+	Všechny póly mají reálnou èást zápornou, tj. leží v levé polorovinì, proto je systém stabilní a má smysl poèítat statické zesílení a koncovou hodnotu.
+
+% ---------------------------------
+\subsection{~}
+	\begin{equation}
+		K = \lim_{s \to 0} G(s) = \lim_{s \to 0} \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)} = \frac{1}{2}
+	\end{equation}
+	Statické zesílení $ K $ je $ \frac{1}{2} $.
+	
+% ---------------------------------
+\subsection{~}
+	Odezvu na vstup $ u(t) = 5 $ mùžeme nalézt v èasové oblasti pomocí konvoluce s impulsní odezvou
+	nebo snáze ve frekvenèní oblasti jako souèin pøenosové funkce $ G(s) $ a Laplaceova obrazu vstupu (oznaème $ U(s) $). \\
+	Nejprve tedy urèíme obraz vstupu
+	\begin{equation}
+		U(s) = \mathcal{L} \{ u(t) \} = \mathcal{L} \{ 5 \ast \mathbb{1}(t) \} = \frac{5}{s}
+	\end{equation}
+	a vyjádøíme obraz odezvy
+	\begin{equation}
+		Y(s) = G(s) U(s) = \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)} \frac{5}{s}
+	\end{equation}
+	dále využijeme vìtu o koncové hodnotì pro stabilní systémy
+	\begin{equation}
+		\lim_{t \to \infty} f(t) = \lim_{s \to 0} s F(s)
+	\end{equation}	
+	kde $ F(s) $ je Laplaceùv obraz funkce $ f(t) $. \\
+	Ustálená hodnota odezvy je tedy
+	\begin{equation}
+		\lim_{t \to \infty} y(t) = \lim_{s \to 0} s Y(s) = \lim_{s \to 0} s \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)} \frac{5}{s} = \frac{5}{2}.
+	\end{equation}		
+	
+% ---------------------------------
+\subsection{~}
+	Postup nalezení odezvy na $ u(t) = \delta(t) $ je stejný jako v pøedchozím pøípadì.
+	Víme, že
+	\begin{equation}
+		U(s) = \mathcal{L} \{ u(t) \} = \mathcal{L} \{ \delta(t) \} = 1
+	\end{equation}
+	pak obraz vstupu
+	\begin{equation}
+		Y(s) = G(s) U(s) = \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)}
+	\end{equation}
+	a podle vìty o koncové hodnotì je ustálená hodnota odezvy
+	\begin{equation}
+		\lim_{t \to \infty} y(t) = \lim_{s \to 0} s Y(s) = \lim_{s \to 0} s \frac{-0.2 s + 4}{(s + 4)(s + 2)(s + 1)} = 0.
+	\end{equation}		
+	
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol2}
+	Je dána soustava diferenciálních rovnic
+	\begin{align}
+		\frac{d x_1(t)}{d t} &= -2 x_1(t) + 20 x_2(t) \\
+		\frac{d x_2(t)}{d t} &= -\frac{1}{2} x_1(t)
+	\end{align}
+	s poèáteèními podmínkami $\begin{bmatrix} x_1(0) \\ x_2(0) \end{bmatrix} = \begin{bmatrix} 6 \\ 0 \end{bmatrix}$.
+	
+% ---------------------------------
+\subsection{~}
+	Pomocí Laplaceovy transformace vyøešíme zadanou soustavu diferenciálních rovnic. \\
+	Nejprve naleznu Laplaceovy obrazy rovnic
+	\begin{align}
+	s X_1(s) - 6 &= -2 X_1(s) + 20 X_2(s) \\
+	s X_2(s) &= -\frac{1}{2} X_1(s)
+	\end{align}
+	z rovnice (5) plyne
+	\begin{equation}
+	X_1(s) = -2 s X_2(s)
+	\end{equation}	
+	dosazením do rovnice (4) dostaneme
+	\begin{equation}
+	-2 s^2 X_2(s) - 6 = 4 s X_2(s) + 20 X_2(s)
+	\end{equation}	
+	nyní již snadno nahlédneme dvojici øešení a upravíme doplnìním jmenovatele na ètverec pro snadnìjší provedení zpìtné transformace
+	\begin{equation}
+	X_1(s) = \frac{6 s}{s^2 + 2 s + 10} = 6 \frac{s + 1}{(s + 1)^2 + 3^2} - 2 \frac{3}{(s + 1)^2 + 3^2}
+	\end{equation}
+	\begin{equation}
+	X_2(s) = \frac{-3}{s^2 + 2 s + 10} = \frac{-3}{(s + 1)^2 + 3^2}
+	\end{equation}
+	Provedeme inverzní Laplaceovu transformaci a dostaneme výsledné funkce v èasové oblasti
+	\begin{align}
+	x_1(t) &= 6 e^{-t} \cos(3 t) - 2 e^{-t} \sin(3 t) \\
+	x_2(t) &= -e^{-t} \sin(3t).
+	\end{align}
+\subsection{~}
+	Nyní v Matlabu vykreslíme spoètené funkce.
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_2_2/ukol_2_2_x_1}
+			\caption{Graf funkce $ x_1(t) $}
+		\end{subfigure}%
+		% ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+		%(or a blank line to force the subfigure onto a new line)
+		\vspace{0.5cm}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_2_2/ukol_2_2_x_2}
+			\caption{Graf funkce $ x_2(t) $}
+		\end{subfigure}
+		\caption{Vykreslení dvojice funkcí $ x_1(t) \text{ a } x_2(t) $ v Matlabu}
+	\end{figure}
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol3}
+	Je zadaný systém
+	\begin{align}
+		\dot{x}_1 &= x_2 \\
+		\dot{x}_2 &= -2 \sin(x_1) - \frac{1}{10} x_2 + u \\
+		y &= x_1
+	\end{align}
+	
+% ---------------------------------
+\subsection{~}
+	Nalezneme rovnovážný pracovní bod $ P = \begin{bmatrix} x_{1p} & x_{2p} & y_p & u_p \end{bmatrix} $ pro $ u_p(t) = 2 $. \\
+	Jelikož se jedná o rovnovážný bod víme, že $ \dot{x}_1 = \dot{x}_2 = 0 $ a proto z rovnice (13) plyne
+	\begin{equation}
+		x_{2p} = 0
+	\end{equation}
+	dosazením tohoto výsledku do rovnice (14) dostaneme
+	\begin{equation}
+		x_{1p} = \frac{\pi}{2}
+	\end{equation}	
+	poslední rovnost (15) nám dá kompletní výsledek
+	\begin{equation}
+		P = \begin{bmatrix} \frac{\pi}{2} & 0 & \frac{\pi}{2} & 2 \end{bmatrix}.
+	\end{equation}	
+	
+	
+% ---------------------------------
+\subsection{~}
+	Nyní nalezneme linearizovaný model v pracovním bodì $ P $. \\
+	Zavedeme pomocné pojmenování nelineárních funkcí
+	\begin{align}
+		f_1 &= x_2 \\
+		f_2 &= -2 \sin(x_1) - \frac{1}{10} x_2 + u \\
+		g &= x_1
+	\end{align}
+	a urèíme matice øízení
+	\begin{equation}
+		A =
+		\left.
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} \\
+			\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2}
+		\end{bmatrix} \right| _P = 
+		\left.
+		\begin{bmatrix}
+			0 & 1 \\
+			-2 \cos(x_1) & -\frac{1}{10}
+		\end{bmatrix} \right| _P = 
+		\begin{bmatrix}
+			0 & 1 \\
+			0 & -\frac{1}{10}
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation}
+		B =
+		\left.
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial u} \\
+			\frac{\partial f_2}{\partial u}
+		\end{bmatrix} \right| _P =
+		\begin{bmatrix}	0 \\ 1 \end{bmatrix} 
+	\end{equation}
+	\begin{equation}
+		C =
+		\left.
+		\begin{bmatrix}
+			\frac{\partial g}{\partial x_1} & \frac{\partial g}{\partial x_2}
+		\end{bmatrix} \right| _P = 
+		\begin{bmatrix}	1 & 0 \end{bmatrix}
+	\end{equation}
+	\begin{equation}
+		D =
+		\left.
+		\begin{bmatrix}
+		\frac{\partial g}{\partial u}
+	\end{bmatrix} \right| _P = 
+	\begin{bmatrix}	0 \end{bmatrix}
+	\end{equation}
+	obecný tvar linearizovaného pøírustkového modelu má v maticovém zápisu tvar
+	\begin{align}
+		\Delta \dot{\textbf{x}} &= A \Delta \textbf{x} + B \Delta u \\
+		\Delta y &= C \Delta \textbf{x} + D \Delta u
+	\end{align}
+	a pro naše spoètené matice dostaneme
+	\begin{align}
+		\Delta \dot{x}_1 &= \Delta x_2 \\
+		\Delta \dot{x}_2 &= -\frac{1}{10} \Delta x_2 + \Delta u \\
+		\Delta y &= \Delta x_1.
+	\end{align}
+	
+% ---------------------------------
+\subsection{~}
+	V Simulinku namodelujeme nelineární a linearizovaný systém
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_3_3/vystup}
+		\end{subfigure}
+		\caption{enter some koment}
+	\end{figure}
+	dále vykreslíme grafy s porovnáním odezev nelineárního a linearizovaného systému pro zadané vstupy
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_3_3/odezva_01}
+			\caption{Odezvy na vstup $ u(t) = 1 $}
+		\end{subfigure}%
+		%~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+		%(or a blank line to force the subfigure onto a new line)
+		\vspace{0.5cm}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_3_3/odezva_02}
+			\caption{Odezvy na vstup $ u(t) = 2.001 $}
+		\end{subfigure}
+		\caption{Porovnání odezev na rùzné vstupy pro nelineární a linearizovaný systém}
+	\end{figure}
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol4}
+% ---------------------------------
+\subsection{~}
+Je dána pøenosová funkce systému
+\begin{equation}
+	G_1(s) = \frac{s + 1}{(s + 10)^2}
+\end{equation}
+\todo{vlozit ofocenou charakteristiku}
+% ---------------------------------
+\subsection{~}
+Zadaná frekvenèní charakteristika odpovídá systému
+\begin{equation}
+G_2(s) = -\frac{(1 - \frac{s}{10^{-1}}) (1 + \frac{s}{10})}
+			   {(1 + \frac{s}{10^{-3}}) (1 + \frac{s}{10^3})}
+\end{equation}
+\todo{if time --> diskuse jednotlivých krokù AND upravit do lepsiho tvaru}
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol5}
+	Máme zadaný vnitøní popis systému
+	\begin{align}
+		\dot{\textbf{x}}(t) &= \begin{bmatrix}
+		-4 & 2 & 0 & 0 \\
+		-6 & 4 & 0 & 0 \\
+		-3 & 3 & 2 & -2 \\
+		-9 & 9 & 2 & -3 \\
+		\end{bmatrix}
+		\textbf{x}(t) + \begin{bmatrix}
+		1 \\
+		0.5 \\
+		0 \\
+		-1
+		\end{bmatrix} u(t) \\
+		y(t) &= \begin{bmatrix} 4 & 0 & 0 & 0 \end{bmatrix} \textbf{x}(t)
+	\end{align}
+	Tedy symbolicky
+	\begin{align}
+		\dot{\textbf{x}}(t) &= A \textbf{x}(t) + B u(t) \\
+		y(t) &= C \textbf{x}(t)
+	\end{align}
+	Pøevedeme jej Laplaceovou transformací do frekvenèní oblasti
+	\begin{align}
+		s \textbf{X}(s) &= A \textbf{X}(s) + B U(s) \\
+		Y(s) &= C \textbf{X}(s)
+	\end{align}
+	Vyøešíme rovnici (37) pro $ \textbf{X}(s) $
+	\begin{align}
+		(s I - A) \textbf{X}(s) &= B U(s) \\
+		\textbf{X}(s) &= (s I - A)^{-1} B U(s)
+	\end{align}
+	kde $ I $ je jednotková matice. Dosazením za $ \textbf{X}(s) $ do rovnice (38) dostaneme
+	\begin{equation}
+		Y(s) = C (s I - A)^{-1} B U(s)
+	\end{equation}
+	jednoduchou úpravou získáme
+	\begin{equation}
+	G(s) = \frac{Y(s)}{U(s)} = C (s I - A)^{-1} B
+	\end{equation}	
+	Využítím Matlabu dosadíme zadané matice a vyjádøíme výsledný pøenos
+	\begin{equation}
+		G(s) = \frac{4 s^3 - 8 s^2 - 20 s + 24}{s^4 + s^3 - 6 s^2 - 4 s + 8}
+	\end{equation}	
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol6}
+	Je zadaný systém
+	\begin{align}
+		\dot{\textbf{x}}(t) &= \begin{bmatrix}
+		1 & 0 & 0 \\
+		2 & -2 & -2 \\
+		1 & 2 & 0 \\
+		\end{bmatrix}
+		\textbf{x}(t) + \begin{bmatrix}
+		1 \\
+		-1 \\
+		1
+		\end{bmatrix} u(t) \\
+		y(t) &= \begin{bmatrix} 1 & 0 & -1 \end{bmatrix} \textbf{x}(t)
+	\end{align}
+	Systém je asymptoticky stabilní, pokud reálná èást všech vlastních èásel matice øízení $ \textbf{A} $ jsou záporná. Matice $ \textbf{A} $ je 
+	\begin{equation}
+		A = \begin{bmatrix}
+			1 & 0 & 0 \\
+			2 & -2 & -2 \\
+			1 & 2 & 0 \\
+		\end{bmatrix}
+	\end{equation}
+	podle identity
+	\begin{equation}
+		\lambda_i = \det(\textbf{A} - \lambda \textbf{I})
+	\end{equation}
+	vypoèteme její vlastní èísla
+	\begin{align}
+		\lambda_{1,2} &= -1 \pm i \sqrt{3} \\
+		\lambda_3 &= 1
+	\end{align}
+	systém tedy není asymptoticky stabilní, protože $ \Re (\lambda_3) > 0 $.
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol7}
+	Je zadaný systém
+	\begin{equation}
+		G(s) = \frac{s - 3}{(s + 1)(s + 7)}
+	\end{equation}
+	Nejprve systém diskretizujeme metodou \textit{zero order hold} 
+	\begin{equation}
+		G(z) = z^{-3} \frac{0.05642 z - 0.07695}{z^2 - 1.401 z + 0.4493}
+	\end{equation}
+	Jako vhodný vzorkovací krok zvolíme 0.21 s a jako špatný vzorkovací krok 1.5 s.
+	Na vstupu necháme pùsobit sinus o periodì 1 rad/s. \\
+	V Matlabu vykreslíme grafy jednotlivých prùbìhù
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_7/good_step}
+			\caption{Odezva na sinus s vzorkovacím krokem 0.21 s}
+		\end{subfigure}%
+		%~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+		%(or a blank line to force the subfigure onto a new line)
+		\vspace{0.5cm}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_7/wrong_step}
+			\caption{Odezva na sinus s vzorkovacím krokem 1.5 s}
+		\end{subfigure}
+		\caption{Porovnání odezev pro rùzné vzorkovací kroky}
+	\end{figure}
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol8}
+Systém je stabilní, pokud všechny reálné èásti pólù pøenosu (koøeny jmenovatele) jsou záporné. Je astatický, má-li pól v nule a násobnost urèuje øád astatismu. Kmitá, existuje-li pól s netriviální imaginární èástí.
+% ---------------------------------
+\subsection{~}
+	\begin{equation}
+		G_1(s) = -\frac{s - 12}{(s + 1)(5 s + 2)(s + 3)}
+	\end{equation}
+	Jednodyché póly pøenosu jsou: $ -1, -\frac{2}{5}, -3 $. \\
+	Systém je stabilní, statický a nekmitavý.
+	
+% ---------------------------------
+\subsection{~}
+	\begin{equation}
+		G_2(s) = \frac{1}{s^2 + 0.5 s - 1}
+	\end{equation}
+	Jednodyché póly pøenosu jsou: $ -1.28078, 0.780776 $. \\
+	Systém je nestabilní, statický a nekmitavý.
+
+% ---------------------------------
+\subsection{~}
+	\begin{equation}
+		G_3(s) = \frac{1}{s^2}
+	\end{equation}
+	Dvojnásobný pól pøenosu je: $ 0 $. \\
+	Systém je nestabilní, astatický (astatismus 2. øádu), nekmitavý.
+
+% ---------------------------------
+\subsection{~}
+	\begin{equation}
+		G_4(s) = \frac{s + 2}{s^2 - 2}
+	\end{equation}
+	Jednoduché póly pøenosu: $ \pm \sqrt{2} $. \\
+	Systém je nestabilní, statický, nekmitavý.
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol9}
+	Jsou dány dva systémy
+	\begin{equation}
+		G_1(s) = \frac{s - 1}{s + 1} \text{, } G_2(s) = \frac{1}{s}
+	\end{equation}
+	
+% ---------------------------------
+\subsection{~}
+	Pro paralelní zapojení platí
+	\begin{equation}
+		H(s) = G_1(s) + G_2(s) = \frac{s^2 + 1}{s (s + 1)}
+	\end{equation}
+
+% ---------------------------------
+\subsection{~}	
+	Pro sériové zapojení platí
+	\begin{equation}
+		H(s) = G_1(s) G_2(s) = \frac{s - 1}{s (s + 1)}
+	\end{equation}
+	
+% ---------------------------------
+\subsection{~}	
+	Pro zadané zpìtnovazební zapojení vytvoøíme pomocnou promìnnou na vodièi za sèítaèkou $ x(s) $
+	\begin{equation}
+		x(s) = r(s) - y(s)
+	\end{equation}
+	vyjádøíme výstup $ y(s) $ pomocí naší pomocné promìnné a následnì za ní dosadíme
+	\begin{equation}
+		y(s) = x(s) G_1(s) G_2(s) = r(s) G_1(s) G_2(s) - y(s) G_1(s) G_2(s)
+	\end{equation}	
+	nyní již snadno urèíme výsledný pøenos
+	\begin{equation}
+		H(s) = \frac{y(s)}{r(s)} = \frac{G_1(s) G_2(s)}{1 + G_1(s) G_2(s)} = \frac{s - 1}{s^2 + 2 s - 1}.
+	\end{equation}		
+
+% ---------------------------------
+\subsection{~}	
+	Stejnì jako v pøedchozím pøípadì využijeme pomocné promìnné $ x(s) $ za sèítaèkou, pro kterou bude nyní platit
+	\begin{equation}
+		x(s) = r(s) - y(s) G_2(s)
+	\end{equation}
+	vyjádøíme výstup $ y(s) $ a dosadíme
+	\begin{equation}
+		y(s) = x(s) G_1(s) = r(s) G_1(s) - y(s) G_1(s) G_2(s)
+	\end{equation}
+	a vyjádøíme výsledný pøenos systému
+	\begin{equation}
+		H(s) = \frac{y(s)}{r(s)} = \frac{G_1(s)}{1 + G_1(s) G_2(s)} = \frac{s (s - 1)}{s^2 + 2 s - 1}.
+	\end{equation}	
+	
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol10}	
+	Je zadán diskrétní systém
+	\begin{equation}
+		3 y(k) - y(k - 1) + \frac{1}{2} y(k - 2) = u(k - 1) - u(k - 2)
+	\end{equation}
+% ---------------------------------
+\subsection{~}
+	Pomocí Z-transformace pøevedeme rovnost do frekvenèní oblasti
+	\begin{align}
+		3 Y(z) - z^{-1} Y(z) + \frac{1}{2} z^{-2} Y(z) &= z^{-1} U(z) - z^{-2} U(z) \\
+		Y(z) (3 - z^{-1} + \frac{1}{2} z^{-2}) &= U(z) (z^{-1} - z^{-2})
+	\end{align}	
+	a vyjádøíme pøenosovou funkci
+	\begin{equation}
+		H(z) = \frac{Y(z)}{U(z)} = \frac{z^{-1} - z^{-2}}{3 - z^{-1} + \frac{1}{2} z^{-2}} = \\ \frac{z - 1}{3 z^2 - z + \frac{1}{2}}
+	\end{equation}
+
+% ---------------------------------
+\subsection{~}
+	Póly pøenosu (koøeny jmenovatele funkce H(z)) jsou jednonásobné $ p_{1,2} = \frac{1}{6} \pm i \frac{\sqrt{5}}{6} $. \\
+	Diskrétní systém je stabilní, pokud je modul všech pólù ostøe menší než jedna, tj. leží v jednotkové kružnici. \\
+	Jelikož platí
+	\begin{equation}
+		|p_1| = |p_2| = \frac{\sqrt{6}}{6} \approx 0.408
+	\end{equation}
+	je systém stabilní.
+	
+% ---------------------------------
+\subsection{~}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_10/vystup}
+		\end{subfigure}
+		\caption{Simulinkové schéma realizace zadaného pøenosu}
+	\end{figure}	
+
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{Figs/ukol_10/ukol_10_3}
+		\end{subfigure}
+		\caption{Odezva systému na $ \mathbb{1}(t) $ se vzorkovací periodou $ h = 1 $}
+	\end{figure}
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol11}	
+% ---------------------------------
+\subsection{~}
+	Pøiøazení pøechodových charakteristik impulzním charakteristikám
+	\begin{itemize}
+		\item (a) $ \leftrightarrow $ (f)
+		\item (b) $ \leftrightarrow $ (d)
+		\item (c) $ \leftrightarrow $ (e).
+	\end{itemize}
+
+% ---------------------------------
+\subsection{~}
+\todo{co je prechodova charakteristika >> je to to same jako odezva na jednotkovy skok? pak to zminit v komentari a ponechat vysledek}
+	Vztah mezi impulzní odezvou $ h(t) $ a pøechodovou charakteristikou $ w(t) $
+	\begin{align}
+		h(t) &= \frac{d w(t)}{d t} \\
+		w(t) &= \int_{- \infty}^{t} h(\tau) d \tau.
+	\end{align}
+
+% ---------------------------------
+% ---------------------------------
+\section{~}
+\label{sec:ukol12}
+% ---------------------------------
+\subsection{~}
+	Pøiøazení odpovídajících frekvenèních charakteristik
+	\begin{itemize}
+		\item (a) $ \leftrightarrow $ (f)
+		\item (b) $ \leftrightarrow $ (d)
+		\item (c) $ \leftrightarrow $ (e).
+	\end{itemize}
+% ---------------------------------
+\subsection{~}
+	Zesílení dostaneme z Nyqistovy frekvenèní charakteristiky jako modul vektoru s poèáteèním bodem v poèátku a koncovým na vykreslené køivce. \\
+	V našem pøípadì to bude vektor, který leží ve 4. kvadrantu a svírá s kladnou reálnou poloosou $ 45° $, tj. $ -45° $ pøi standardním znaèení. \\
+	Systém tedy má v $ -45° $ zesílení asi $ -3$ dB.
+
+
+% ---------------------------------
+% ---------------------------------
+% Literatura
+\begin{thebibliography}{9}
+
+% vzorová citace
+\bibitem{lamport94}
+  Leslie Lamport,
+  \emph{\LaTeX: A Document Preparation System}.
+  Addison Wesley, Massachusetts,
+  2nd Edition,
+  1994.
+
+\bibitem{Wiki}
+	\LaTeX tutorials, \url{http://en.wikibooks.org/wiki/LaTeX/}
+
+\bibitem{ARI11}
+	Studenti pøedmìtu ARI 2011, \emph{ARI song (videoklip)} \url{http://www.youtube.com/watch?v=5gDfQK7dD7c}
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
