@@ -1,0 +1,245 @@
+#VRML V2.0 utf8
+
+#Created with V-Realm Builder v2.0
+#Integrated Data Systems Inc.
+#www.ids-net.com
+
+
+Background {
+	groundAngle	[ 0.9, 1.5, 1.57 ]
+	groundColor	[ 0 0.8 0,
+			  0.174249 0.82 0.187362,
+			  0.467223 0.82 0.445801,
+			  0.621997 0.67 0.600279 ]
+	skyAngle	[ 0.1, 1.2, 1.57 ]
+	skyColor	[ 0.76238 0.8 0.1427,
+			  0.277798 0.219779 0.7,
+			  0.222549 0.390234 0.7,
+			  0.60094 0.662637 0.69 ]
+}
+DEF Left Transform {
+	translation	-26.1267 8.50725 -9.572
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				diffuseColor	0 0 0
+			}
+
+		}
+
+		geometry	Box {
+			size	0.6 28.5 20
+		}
+
+	}
+}
+DEF Right Transform {
+	translation	24.2857 8.39936 -9.0446
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				diffuseColor	0 0 0
+			}
+
+		}
+
+		geometry	Box {
+			size	0.6 28.5 20
+		}
+
+	}
+}
+DEF Top Transform {
+	translation	-1.22413 22.5013 -8.94074
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				diffuseColor	0 0 0
+			}
+
+		}
+
+		geometry	Box {
+			size	50 0.6 20
+		}
+
+	}
+}
+DEF Ball Transform {
+	translation	-0.569039 7.66895 2.39135
+	rotation	0 0 1  0.0191989
+	scale	2.11901 2.11902 1.24648
+	children [ 
+	    Shape {
+		    appearance	Appearance {
+			    material	Material {
+				    ambientIntensity	0.1
+				    diffuseColor	0 0 0
+			    }
+
+		    }
+
+		    geometry	Extrusion {
+			    beginCap	TRUE
+			    endCap	TRUE
+			    ccw	FALSE
+			    convex	TRUE
+			    creaseAngle	0
+			    solid	TRUE
+			    crossSection	[ 0.732968 1.16718,
+					      0.732968 2.32094,
+					      0.0249498 4.35195,
+					      -0.635446 2.26727,
+					      -0.635446 1.14035,
+					      -0.635446 -0.73787,
+					      -0.273663 -0.961826,
+					      0.092268 -0.995734,
+					      0.445738 -0.895163,
+					      0.739009 -0.673696,
+					      0.732968 1.16718 ]
+			    orientation	[ 0 0 1  0,
+					      0 0 1  0 ]
+			    scale	[ 1 1,
+					      1 1 ]
+			    spine	[ 0 0 0,
+					      0.00744189 -0.0523739 0.385371 ]
+		    }
+
+	    }
+
+	    DEF Sphere Transform {
+		    translation	-0.034117 -2.93143 1.72146e-006
+		    children Shape {
+			    appearance	Appearance {
+				    material	Material {
+				    }
+
+			    }
+
+			    geometry	Sphere {
+			    }
+
+		    }
+	    }
+	]
+}
+DEF Pedestal Transform {
+	translation	-0.805632 -10.8919 -14.339
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				diffuseColor	0 0 0
+			}
+
+		}
+
+		geometry	Box {
+			size	51 10 30
+		}
+
+	}
+}
+DEF Ball_and_Hoop Transform {
+	translation	-1.03392 8.19039 -9.14443
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+			texture	ImageTexture {
+				url	"texture/BallHoop_VR.jpg"
+			}
+
+		}
+
+		geometry	Box {
+			size	50 28 20
+		}
+
+	}
+}
+DEF Hoop Transform {
+	translation	-0.298535 9.13602 2.93254
+	rotation	0 0 1  0.0191989
+	scale	2.11901 2.11902 1.24648
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				diffuseColor	0.8 0.0643941 0.0488021
+			}
+
+		}
+
+		geometry	Extrusion {
+			beginCap	TRUE
+			endCap	TRUE
+			ccw	FALSE
+			convex	TRUE
+			creaseAngle	0
+			solid	TRUE
+			crossSection	[ 1 0,
+					  0.932472 0.361242,
+					  0.739009 0.673696,
+					  0.445738 0.895163,
+					  0.0922684 0.995734,
+					  -0.273663 0.961826,
+					  -0.602634 0.798017,
+					  -0.850217 0.526432,
+					  -0.982973 0.18375,
+					  -0.982973 -0.183749,
+					  -0.850217 -0.526432,
+					  0.00851351 -2.91214,
+					  0.840294 -0.656461,
+					  0.932472 -0.361241,
+					  1 0 ]
+			orientation	[ 0 0 1  0,
+					  0 0 1  0 ]
+			scale	[ 0.8 0.8,
+					  1 1 ]
+			spine	[ 0 0 0,
+					  0.00744189 -0.0523739 0.385371 ]
+		}
+
+	}
+}
+DEF Viewpoint_A Viewpoint {
+	orientation	0.0372956 -0.999215 0.0133229  0.129733
+	position	-10.6591 14.8148 61.6995
+	description	"ViewPoint"
+}
+DEF Viewpoint_B Viewpoint {
+	orientation	-0.999352 0.0160878 0.0322023  0.454836
+	position	0.0347719 39.7217 65.4531
+	description	"ViewPoint 2"
+}
+DEF Viewpoint_C Viewpoint {
+	orientation	0.0146331 0.999892 0.00151109  0.350806
+	position	25.3299 15.5367 68.4199
+	description	"ViewPoint 3"
+}
+DEF Hoop_back Transform {
+	translation	-0.356022 8.0806 -5.44483
+	rotation	0 0.707107 0.707107  3.14159
+	scale	3.28364 3.28364 3.28364
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.1
+				transparency	0.3
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	4
+			radius	2.6
+			side	TRUE
+		}
+
+	}
+}

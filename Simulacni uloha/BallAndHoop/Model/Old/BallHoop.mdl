@@ -1,0 +1,1353 @@
+Model {
+  Name			  "BallHoop"
+  Version		  6.5
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.196"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  CloseFcn		  "vrclose all;\nclear figureVR worldVR;"
+  InitFcn		  "g = 9.81; %gravitational constant\n\n % showVR = 0;"
+" %show VR world\n%  psi_init = 0; %initial condition\n"
+  Created		  "Mon Mar 19 13:02:11 2007"
+  Creator		  "H"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Roubalj"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Apr 24 08:37:47 2009"
+  ModelVersionFormat	  "1.%<AutoIncrement:196>"
+  ConfigurationManager	  "None"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ProdHWDeviceType	  "32-bit Generic"
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.2.0"
+      Array {
+	Type			"Handle"
+	Dimension		7
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.2.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "1e-2"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.2.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.2.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  ParameterPooling	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.2.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StrictBusMsg		  "Warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.2.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.2.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "IncludeHyperlinkInReport"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.2.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.2.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      PrefixModelToSubsysFcnNames on
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		13
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.2.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      SimulationMode	      "normal"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Assignment
+      IndexMode		      "One-based"
+      OutputDimensions	      "[1]"
+      DiagnosticForDimensions "None"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "sfix(16)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "2^0"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "BallHoop"
+    Location		    [5, 74, 678, 396]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "BALL & HOOP\nVR Model"
+      Ports		      [1, 3]
+      Position		      [345, 71, 525, 199]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskHideContents	      off
+      MaskType		      "Ball and Hoop (BH) in laboratory K26"
+      MaskDescription	      "Ball and Hoop (BH) in laboratory K26 - Virtual "
+"Reality"
+      MaskHelp		      "Ball and Hoop in laboratory K26 - Virtual Reali"
+"ty. <br><br>\n\n\nThis is a virtual model of the Ball and Hoop apparatus in L"
+"aboratory of automatic control \ntheory&nbsp;26 (<a href=\"http://support.dce"
+".felk.cvut.cz/lab26/\" target=\"_blank\">http://support.dce.felk.cvut.cz/lab2"
+"6/</a>), \nwhich consists of a&nbsp;DC motor, a&nbsp;hoop and a&nbsp;ball. Th"
+"e&nbsp;hoop angular velocity is controlled \nby the DC motor controller by th"
+"e voltage&nbsp;<em>u</em>&nbsp;[V].  A&nbsp;metal ball is placed inside \nthe"
+"&nbsp;hoop so that it rolls in a&nbsp;groove on the&nbsp;inner periphery of t"
+"he&nbsp;hoop.\n<br><br>\n\nThe&nbsp;system input is the&nbsp;voltage of the&n"
+"bsp;DC motor&nbsp;<em>u</em>&nbsp;[V]. \nThe&nbsp;system outputs are the&nbsp"
+";hoop velocity&nbsp;<em>&omega;</em>&nbsp;[rot/min], \nthe&nbsp;angle of the&"
+"nbsp;hoop&nbsp;<em>&phi;</em>&nbsp;[deg] and the&nbsp;angle of \nthe&nbsp;bal"
+"l&nbsp;<em>&psi;</em>&nbsp;[deg]. More information can be found on the websit"
+"e \n<a href=\"http://support.dce.felk.cvut.cz/lab26/\" target=\"_blank\">http"
+"://support.dce.felk.cvut.cz/lab26/</a>.<br><br>\n\n\nIn the mask of the model"
+", it can be set:\n<ul>\n<li>Initial angle of the ball.</li>\n</ul><br><br>\n"
+"\n\nCopyright: 2009, Jiri Machac, Jirka Roubal, Petr Husek."
+      MaskPromptString	      "Show VirtualWorld?|Initial angle of the ball   "
+"psi(0)  [deg]"
+      MaskStyleString	      "checkbox,edit"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "if strcmp('off',get_param(gcb,'showVR'))\n    v"
+"rclose all;\nelse\n    if exist('figureVR')==0\n        figureVR = vrfigure;"
+"\n    end  \n    if exist('worldVR')==0\n        worldVR = vrworld('BallHoop_"
+"VR.WRL');\n    end\n	if isvalid(figureVR)==0\n        open(worldVR);\n"
+"        figureVR = vrfigure(worldVR,[650 80 550 350]);\n	end\nend|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVarAliasString      ","
+      MaskVariables	      "showVR=@1;sfcnParam1=@2;"
+      MaskDisplay	      "image(imread('BallHoop_Image.jpg'));\nport_labe"
+"l ('input',1,'u [V]');\nport_label ('output',1,'phi [deg]');\nport_label ('ou"
+"tput',2,'omega [rot/min]');\nport_label ('output',3,'psi [deg]');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "on|0"
+      MaskTabNameString	      ","
+      System {
+	Name			"BALL & HOOP\nVR Model"
+	Location		[480, 85, 1143, 493]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Motor"
+	  Position		  [15, 90, 35, 110]
+	  BackgroundColor	  "red"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  "BALL & HOOP\nVR Model_sfcn"
+	  Ports			  [1, 3]
+	  Position		  [220, 38, 415, 162]
+	  BackgroundColor	  "darkGreen"
+	  CopyFcn		  "set_param(gcb,'LinkStatus','none');"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  FontWeight		  "bold"
+	  FunctionName		  "BALL_sf"
+	  Parameters		  "sfcnParam1"
+	  SFunctionModules	  "   "
+	  MaskDescription	  "Real-Time Workshop generated S-function."
+	  MaskHelp		  "helpview([docroot,'\\toolbox\\rtw\\helptarg"
+"ets.map'],'rtw_Sfunc_target');"
+	  MaskPromptString	  "Generated S-function name (model_sf):|Show "
+"module list|psi_init:"
+	  MaskStyleString	  "edit,checkbox,edit"
+	  MaskTunableValueString  "on,on,on"
+	  MaskCallbackString	  "||"
+	  MaskEnableString	  "on,on,on"
+	  MaskVisibilityString	  "on,on,on"
+	  MaskToolTipString	  "on,on,on"
+	  MaskVarAliasString	  ",,"
+	  MaskVariables		  "rtw_sf_name=&1;showVar=@2;sfcnParam1=@3;"
+	  MaskInitialization	  "displist = '';\nif ~strcmp(get_param(gcb, '"
+"FunctionName'), rtw_sf_name);\n  set_param(gcb, 'FunctionName', rtw_sf_name);"
+"\nend\n% Check if we are generating RTW code\nrtw_mode = false;\nif strcmpi(g"
+"et_param(bdroot(gcb),'SimulationStatus'),'Initializing')\n	rtw_mode = "
+"strcmpi(get_param(bdroot(gcb),'BuildingRTWCode'),'on') && ...\n	"
+"	~strcmpi(get_param(bdroot(gcb),'TargetStyle'),'SimulationTarget');\ne"
+"nd\nif showVar || rtw_mode\n	if exist('rtwsfunc') == 2 | exist('rtwsfu"
+"nc') == 6\n		tmplist = rtwsfunc(rtw_sf_name,gcb);\n	"
+"	tmplist = ['\\nList of Modules:\\n', tmplist];\n	elseif showVa"
+"r\n		tmplist = '\\nList of Modules:\\nRTW not licensed\\n';\n "
+"	end\nend\nif showVar\n  displist = tmplist;\nend"
+	  MaskDisplay		  "\nport_label('input',1,'Motor');\nport_labe"
+"l('output',1,'Phi');\nport_label('output',2,'Omega');\nport_label('output',3,"
+"'Psi');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "BALL_sf|off|sfcnParam1"
+	  MaskTabNameString	  ",,"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "To VR World"
+	  Ports			  [2, 2]
+	  Position		  [375, 208, 445, 377]
+	  Orientation		  "left"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "To VR World"
+	    Location		    [391, 518, 836, 726]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "psi"
+	      Position		      [25, 43, 55, 57]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "phi"
+	      Position		      [25, 128, 55, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      Position		      [75, 80, 105, 110]
+	      ShowName		      off
+	      Value		      "180"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      Ports		      [2, 1]
+	      Position		      [115, 125, 135, 145]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++|"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander1"
+	      Ports		      [1, 1]
+	      Position		      [275, 31, 370, 69]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      on
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "VR Signal Expander3"
+	      Ports		      [1, 1]
+	      Position		      [275, 116, 370, 154]
+	      SourceBlock	      "vrlib/VR Signal Expander"
+	      SourceType	      "VR Signal Expander"
+	      ShowPortLabels	      on
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      outwidth		      "4"
+	      outidx		      "[4]"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "gain"
+	      Position		      [170, 35, 200, 65]
+	      Gain		      "2/115"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "gain "
+	      Position		      [170, 120, 200, 150]
+	      Gain		      "3.11/180"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Psi"
+	      Position		      [395, 43, 425, 57]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Phi"
+	      Position		      [395, 128, 425, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "psi"
+	      SrcPort		      1
+	      DstBlock		      "gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander3"
+	      SrcPort		      1
+	      DstBlock		      "Phi"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "VR Signal Expander1"
+	      SrcPort		      1
+	      DstBlock		      "Psi"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "phi"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "gain"
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "gain "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "gain "
+	      SrcPort		      1
+	      DstBlock		      "VR Signal Expander3"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "VR Sink"
+	  Ports			  [2]
+	  Position		  [170, 205, 315, 380]
+	  Orientation		  "left"
+	  SourceBlock		  "vrlib/VR Sink"
+	  SourceType		  "Virtual Reality Sink"
+	  SampleTime		  "-1"
+	  ViewEnable		  on
+	  RemoteChange		  off
+	  RemoteView		  on
+	  FieldsWritten		  "Ball.rotation.4.1.double#Hoop.rotation.4.1."
+"double"
+	  WorldFileName		  "BallHoop_VR.WRL"
+	  AutoView		  off
+	  FigureProperties	  "{}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "__InputSSForSFun__"
+	  Ports			  [1, 1]
+	  Position		  [90, 36, 175, 164]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "__InputSSForSFun__"
+	    Location		    [480, 85, 1060, 386]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Motor"
+	      Position		      [70, 30, 90, 40]
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "__UniqueOutportName__1__"
+	      Position		      [395, 25, 415, 45]
+	      ShowName		      off
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Motor"
+	      SrcPort		      1
+	      DstBlock		      "__UniqueOutportName__1__"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "__OutputSSForSFun__"
+	  Ports			  [3, 3]
+	  Position		  [460, 36, 560, 164]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "__OutputSSForSFun__"
+	    Location		    [480, 85, 1060, 386]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__1__"
+	      Position		      [100, 35, 120, 55]
+	      ShowName		      off
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__2__"
+	      Position		      [100, 55, 120, 75]
+	      ShowName		      off
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "__UniqueInportName__3__"
+	      Position		      [100, 75, 120, 95]
+	      ShowName		      off
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Phi"
+	      Position		      [225, 40, 245, 50]
+	      IconDisplay	      "Port number"
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Omega"
+	      Position		      [225, 60, 245, 70]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Psi"
+	      Position		      [225, 80, 245, 90]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      PortDimensions	      "1"
+	      SampleTime	      "[-1 0]"
+	      DataType		      "double"
+	      SignalType	      "real"
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__3__"
+	      SrcPort		      1
+	      DstBlock		      "Psi"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__2__"
+	      SrcPort		      1
+	      DstBlock		      "Omega"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "__UniqueInportName__1__"
+	      SrcPort		      1
+	      DstBlock		      "Phi"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Phi"
+	  Position		  [610, 50, 630, 70]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "1"
+	  SampleTime		  "[-1 0]"
+	  DataType		  "double"
+	  SignalType		  "real"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Omega"
+	  Position		  [610, 90, 630, 110]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "1"
+	  SampleTime		  "[-1 0]"
+	  DataType		  "double"
+	  SignalType		  "real"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Psi"
+	  Position		  [610, 130, 630, 150]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "1"
+	  SampleTime		  "[-1 0]"
+	  DataType		  "double"
+	  SignalType		  "real"
+	}
+	Line {
+	  SrcBlock		  "To VR World"
+	  SrcPort		  2
+	  DstBlock		  "VR Sink"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "To VR World"
+	  SrcPort		  1
+	  DstBlock		  "VR Sink"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  3
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, 110]
+	    DstBlock		    "To VR World"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Psi"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  2
+	  DstBlock		  "Omega"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "__OutputSSForSFun__"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, 275]
+	    DstBlock		    "To VR World"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Phi"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "BALL & HOOP\nVR Model_sfcn"
+	  SrcPort		  3
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "BALL & HOOP\nVR Model_sfcn"
+	  SrcPort		  2
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "BALL & HOOP\nVR Model_sfcn"
+	  SrcPort		  1
+	  DstBlock		  "__OutputSSForSFun__"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "__InputSSForSFun__"
+	  SrcPort		  1
+	  DstBlock		  "BALL & HOOP\nVR Model_sfcn"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Motor"
+	  SrcPort		  1
+	  DstBlock		  "__InputSSForSFun__"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [3, 1]
+      Position		      [565, 75, 570, 195]
+      ShowName		      off
+      Inputs		      "3"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope \nphi [deg], \nomega [rot/min] \n& psi [d"
+"eg]"
+      Ports		      [1]
+      Position		      [610, 119, 640, 151]
+      Floating		      off
+      Location		      [337, 469, 661, 708]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "-100"
+      YMax		      "100"
+      SaveToWorkspace	      on
+      SaveName		      "ty"
+      DataFormat	      "Array"
+      MaxDataPoints	      "500000"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope \nu [V]"
+      Ports		      [1]
+      Position		      [290, 64, 320, 96]
+      Floating		      off
+      Location		      [6, 469, 330, 708]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "-10"
+      YMax		      "10"
+      SaveToWorkspace	      on
+      SaveName		      "tu"
+      DataFormat	      "Array"
+      MaxDataPoints	      "500000"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "u"
+      Position		      [35, 120, 65, 150]
+      Time		      "5"
+      Before		      "-3"
+      After		      "3"
+      SampleTime	      "0"
+    }
+    Line {
+      SrcBlock		      "BALL & HOOP\nVR Model"
+      SrcPort		      2
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      DstBlock		      "Scope \nphi [deg], \nomega [rot/min] \n& psi [d"
+"eg]"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "BALL & HOOP\nVR Model"
+      SrcPort		      3
+      DstBlock		      "Mux1"
+      DstPort		      3
+    }
+    Line {
+      Labels		      [0, 0]
+      SrcBlock		      "u"
+      SrcPort		      1
+      Points		      [185, 0]
+      Branch {
+	Points			[0, -55]
+	DstBlock		"Scope \nu [V]"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"BALL & HOOP\nVR Model"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "BALL & HOOP\nVR Model"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      1
+    }
+    Annotation {
+      Name		      "Ball and Hoop (BH)"
+      Position		      [441, 34]
+      ForegroundColor	      "blue"
+      UseDisplayTextAsClickCallback off
+      FontName		      "Times New Roman"
+      FontSize		      20
+      FontWeight	      "bold"
+      FontAngle		      "italic"
+    }
+    Annotation {
+      Name		      "__"
+      Position		      [547, 80]
+      ForegroundColor	      "yellow"
+      UseDisplayTextAsClickCallback off
+      FontWeight	      "bold"
+    }
+    Annotation {
+      Name		      "__"
+      Position		      [547, 125]
+      ForegroundColor	      "magenta"
+      UseDisplayTextAsClickCallback off
+    }
+    Annotation {
+      Name		      "__"
+      Position		      [547, 160]
+      ForegroundColor	      "cyan"
+      UseDisplayTextAsClickCallback off
+    }
+  }
+}
