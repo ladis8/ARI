@@ -1,0 +1,196 @@
+%
+\documentclass[twoside]{article}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% nastavení pisma a èeštiny
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}
+\usepackage[czech]{babel}	
+
+%na komentovanie
+\usepackage{verbatim} 
+
+% odkazy
+\usepackage{url}
+
+% vícesloupcové tabulky
+\usepackage{multirow}
+
+% vnoøené popisky obrázkù
+\usepackage{subcaption}
+
+% automatická konverze EPS 
+\usepackage{graphicx} 
+\usepackage{epstopdf}
+% matice
+\usepackage{amsmath}
+
+% odkazy a záloky
+\usepackage[unicode=true, bookmarks=true,bookmarksnumbered=true,
+bookmarksopen=false, breaklinks=false,pdfborder={0 0 0},
+pdfpagemode=UseNone,backref=false,colorlinks=true] {hyperref}
+
+% Poznámky pøi pøekladu
+\usepackage{xkeyval}	% Inline todonotes
+\usepackage[textsize = footnotesize]{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+% Zacni sekci slovem ukol
+\renewcommand{\thesection}{Úloha \arabic{section}}
+% enumerate zacina s pismenem
+%\renewcommand{\theenumi}{\alph{enumi}}
+
+% smaz aktualni page layout
+\fancyhf{}
+% zahlavi
+\usepackage{titling}
+\fancyhf[HC]{\thetitle}
+\fancyhf[HLE,HRO]{\theauthor}
+\fancyhf[HRE,HLO]{\today}
+ %zapati
+\fancyhf[FLE,FRO]{\thepage}
+
+% údaje o autorovi
+\title{Domáca úloha ARI 07}
+\author{Milan Zongor}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% ---------------------------------
+% ---------------------------------
+% název sekce je generován automaticky jako: Úkol X
+\section{}
+Máme zadanú sústavu s prenosom
+$$ L(s) = K \frac{1}{s(s+50)(s+100)} $$
+
+\subsection{}
+Poiadavka: Vıslednı systém má pri skoku na referenciu prekmit 20\%.
+Z danej poiadavky môeme vypoèíta poadované tlmenie následovne:
+$$ \zeta = \frac{-ln(\frac{\%OS}{100})}{\sqrt{\pi^2 + ln^2(\frac{\%OS}{100})}} = \frac{-ln(\frac{20}{100})}{\sqrt{\pi^2 + ln^2(\frac{20}{100})}} = 0.4559 $$
+Následne si môeme vypoèíta poadované PM
+$$ PM = arctan \frac{2\zeta}{\sqrt{-2\zeta^2 + \sqrt{1+4\zeta^4}}} = arctan \frac{2\cdot 0.4559}{\sqrt{-2\cdot 0.4559^2 + \sqrt{1+4\cdot 0.4559^4}}} = 0.8403 \cong 48.15^\circ$$
+Na vykreslenie Bodeho grafu musíme zvoli ¾ubovo¾né K. Napríklad $ K = 5$.
+Následne si pomocou tıchto príkazov v matlabe vykreslíme graf:
+\begin{verbatim}
+H = tf([5],[1 150 5000 0])
+bode(H)
+\end{verbatim}
+Na grafe nájdeme frekvenciu, pre ktorú je fáza $ L(j\omega) = -180^\circ + 48.15^\circ = -131.85^\circ $.
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0301.eps}
+    \caption {Bodeho graf}
+\end{figure}
+Z grafu odèítame $ \omega' = 25.8 rad \cdot s^{-1} $
+Tejto hodnote prislúcha $ |L(\omega ')| = -89.6 dB $
+Zosilnenie zmeníme tak, aby amplitúda pre túto frekvenciu bola rovná 1 (0dB), teda o $89.6 dB$.
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0304.eps}
+    \caption {Bodeho graf}
+\end{figure}
+Z toho môeme vypoèíta zo vzorca $ 20log(a) = 89.6 $ a potom vychádza $a = 30 200 $.
+Potom dostaneme h¾adané:
+$$ L(s) = \frac{5 \cdot 30200}{s(s+50)(s+100)} = \frac{151000}{s(s+50)(s+100)} $$
+A teda $K = 151000$.
+
+\subsection{}
+V Matlabe si pre získanı prenos vykreslíme graf pomocou príkazov:
+\begin{verbatim}
+H = tf([151000],[1 150 5000 0])
+h = H/(1+H)
+step(h)
+\end{verbatim}
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0303.eps}
+    \caption {Odozva na jednotkovı skok pre CL}
+\end{figure}
+
+Skúška nám vyšla a preto môeme prehlási, e h¾adané $ K = 151 000$.
+
+\section{}
+Môj dátum narodenia je 29.7.1996 a preto pre mòa pripadá zadanie èíslo 3.
+\subsection{Typ systému, rád astatizmu}
+Zadanı graf má dve zlomové miesta, z ktorıch môeme odèíta póly a nuly. Prvé klesanie -40dB/dek symbolizuje dvojnásobnı pól v nule $\frac{1}{s^2}$. Ïalej je zlom v 1, z èoho môeme zisti nulu $s+1$. Druhı zlom je v 4 s klesajúcou tendenciou, z èoho mono vyèíta pól $\frac{1}{\frac{s}{4}+1}$. Ïalej vidíme, e graf je posunutı o 20dB hore, take je vynásobenı konštantou 10.
+Po zloení dostávame:
+$$ L(s) = \frac{40*(s+1)}{s^2(s+4)} = \frac{40*(s+1)}{s^3 + 4s^2} $$
+Z daného prenosu môeme vidie, e má dva póly v nule, z èoho vyplıva, e rád astatizmu systému je 2.
+\subsection{Urèite konštanty ustáleného stavu}
+Z danıch vzorcov môeme vypoèíta:
+$$ K_p = \lim_{s \to 0}L(s) = \lim_{s \to 0} \frac{40*(s+1)}{s^3 + 4s^2} = \lim_{s \to 0} \frac{40}{0 + 0} = \infty $$
+$$ K_v = \lim_{s \to 0}sL(s) = \lim_{s \to 0} \frac{40s(s+1)}{s^2(s+4)} = \lim_{s \to 0} \frac{40(s+1)}{s(s+4)} =\lim_{s \to 0} \frac{(0+40)}{0(0+4)} = \infty  $$
+$$ K_a = \lim_{s \to 0}s^2L(s) = \lim_{s \to 0} \frac{40s^2(s+1)}{s^2(s+4)} = \lim_{s \to 0} \frac{40(s+1)}{(s+4)} =\lim_{s \to 0} \frac{(0+40)}{(0+4)} = 10  $$
+
+\subsection{Ustálené odchı¾ky}
+Grafy ustálenıch odchı¾ok môeme vygenerova v Matlabe pomocou príkazov:
+\begin{verbatim}
+H = tf([40 40],[1 4 0 0])
+step(H) %odozva na skok
+H1 = tf([40 40],[1 4 0 0 0])
+step(H1) %odozva na rampu
+H2 = tf([80 80],[1 4 0 0 0 0])
+step(H2) %odozva na parabolu
+\end{verbatim}
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0305.eps}
+    \caption {Odozva na skok}
+\end{figure}
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0306.eps}
+    \caption {Odozva na rampu}
+\end{figure}
+
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.6\textwidth]{materials/hw0307.eps}
+    \caption {Odozva na parabolu}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+\begin{comment}
+%jeden obrazok
+\begin{figure} [!h]
+	\centering
+	\includegraphics[ width = 0.7\textwidth]{Figs/ukol10.eps}
+    \caption {Odezva systému na jednotkovı skok}
+\end{figure}
+
+%dva obrazky
+\begin{figure}[htb]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Figs/ukol7_1.eps}
+		\caption{Vzorkování $f_s= 10 Sa/s$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Figs/ukol7_2.eps}
+		\caption{Nedostateèné vzorkování $f_s= 2 Sa/s$}
+	\end{subfigure}
+    \caption{Vıstup spojitého systému a diskrétního systému pro vhodné a nevhodné vzorkování}
+\end{figure}
+\end{comment}
